@@ -1,0 +1,77 @@
+---
+name: pharma-network-manufacturer
+version: 1.0.0
+client:
+  organization: Manufacturer
+  connection:
+    timeout:
+      peer:
+        endorser: '300'
+organizations:
+  Manufacturer:
+    mspid: manufacturerMSP
+    peers:
+    - peer0.manufacturer.pharma-network.com
+    - peer1.manufacturer.pharma-network.com
+    certificateAuthorities:
+    - ca.manufacturer.pharma-network.com
+peers:
+  peer0.manufacturer.pharma-network.com:
+    url: grpcs://localhost:7051
+    tlsCACerts:
+      pem: |
+          -----BEGIN CERTIFICATE-----
+          MIICljCCAjugAwIBAgIQDl1GRZXvHoIicM2jX1+PITAKBggqhkjOPQQDAjCBlDEL
+          MAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBG
+          cmFuY2lzY28xKDAmBgNVBAoTH21hbnVmYWN0dXJlci5waGFybWEtbmV0d29yay5j
+          b20xLjAsBgNVBAMTJXRsc2NhLm1hbnVmYWN0dXJlci5waGFybWEtbmV0d29yay5j
+          b20wHhcNMjMwNjE3MTcwNjAwWhcNMzMwNjE0MTcwNjAwWjCBlDELMAkGA1UEBhMC
+          VVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBGcmFuY2lzY28x
+          KDAmBgNVBAoTH21hbnVmYWN0dXJlci5waGFybWEtbmV0d29yay5jb20xLjAsBgNV
+          BAMTJXRsc2NhLm1hbnVmYWN0dXJlci5waGFybWEtbmV0d29yay5jb20wWTATBgcq
+          hkjOPQIBBggqhkjOPQMBBwNCAATI/RlH34JhwTJkv3PAk2fPmvcP9F+y9jaYEGRH
+          AUcq+7SV0uNxVgQcyVENNm4ZVW7fw5O1YskGowGEY+lCsQ7Lo20wazAOBgNVHQ8B
+          Af8EBAMCAaYwHQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMBMA8GA1UdEwEB
+          /wQFMAMBAf8wKQYDVR0OBCIEIHYy1GZyrngm/kTvLlOAyHlUV+24Lf1Q3ZXmmLRy
+          rRcTMAoGCCqGSM49BAMCA0kAMEYCIQDSjEcgv+82Sl2wKPH/rPmnwGRFQ997nyhQ
+          Hoq9Kx464wIhAP8tbHCorWryz2foGIVLcODojZOJEhWsdjO93RxSfvMC
+          -----END CERTIFICATE-----
+
+
+    grpcOptions:
+      ssl-target-name-override: peer0.manufacturer.pharma-network.com
+      hostnameOverride: peer0.manufacturer.pharma-network.com
+
+  peer1.manufacturer.pharma-network.com:
+    url: grpcs://localhost:8051
+    tlsCACerts:
+      pem: |
+          -----BEGIN CERTIFICATE-----
+          MIICljCCAjugAwIBAgIQDl1GRZXvHoIicM2jX1+PITAKBggqhkjOPQQDAjCBlDEL
+          MAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBG
+          cmFuY2lzY28xKDAmBgNVBAoTH21hbnVmYWN0dXJlci5waGFybWEtbmV0d29yay5j
+          b20xLjAsBgNVBAMTJXRsc2NhLm1hbnVmYWN0dXJlci5waGFybWEtbmV0d29yay5j
+          b20wHhcNMjMwNjE3MTcwNjAwWhcNMzMwNjE0MTcwNjAwWjCBlDELMAkGA1UEBhMC
+          VVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBGcmFuY2lzY28x
+          KDAmBgNVBAoTH21hbnVmYWN0dXJlci5waGFybWEtbmV0d29yay5jb20xLjAsBgNV
+          BAMTJXRsc2NhLm1hbnVmYWN0dXJlci5waGFybWEtbmV0d29yay5jb20wWTATBgcq
+          hkjOPQIBBggqhkjOPQMBBwNCAATI/RlH34JhwTJkv3PAk2fPmvcP9F+y9jaYEGRH
+          AUcq+7SV0uNxVgQcyVENNm4ZVW7fw5O1YskGowGEY+lCsQ7Lo20wazAOBgNVHQ8B
+          Af8EBAMCAaYwHQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMBMA8GA1UdEwEB
+          /wQFMAMBAf8wKQYDVR0OBCIEIHYy1GZyrngm/kTvLlOAyHlUV+24Lf1Q3ZXmmLRy
+          rRcTMAoGCCqGSM49BAMCA0kAMEYCIQDSjEcgv+82Sl2wKPH/rPmnwGRFQ997nyhQ
+          Hoq9Kx464wIhAP8tbHCorWryz2foGIVLcODojZOJEhWsdjO93RxSfvMC
+          -----END CERTIFICATE-----
+          
+    grpcOptions:
+      ssl-target-name-override: peer1.manufacturer.pharma-network.com
+      hostnameOverride: peer1.manufacturer.pharma-network.com
+certificateAuthorities:
+  ca.manufacturer.pharma-network.com:
+    url: https://localhost:7054
+    caName: ca_manufacturer
+    tlsCACerts:
+      pem:
+        - /home/ram/pharma-network/network/organizations/peerOrganizations/manufacturer.pharma-network.com/ca/ca.manufacturer.pharma-network.com-cert.pem
+    httpOptions:
+      verify: false
